@@ -6713,6 +6713,8 @@ GameObject:
   - 50: {fileID: 1693891063}
   - 114: {fileID: 1693891060}
   - 60: {fileID: 1693891061}
+  - 114: {fileID: 1693891066}
+  - 114: {fileID: 1693891062}
   m_Layer: 0
   m_Name: CloudBall
   m_TagString: PlayerCloud
@@ -6784,6 +6786,17 @@ PolygonCollider2D:
       - {x: 0.11, y: -0.63}
       - {x: 0.31, y: -0.59999996}
       - {x: 0.42999998, y: -0.53999996}
+--- !u!114 &1693891062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693891059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6cd58ec77924c709770696d2ee8e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1693891063
 Rigidbody2D:
   serializedVersion: 2
@@ -6838,11 +6851,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1693891059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.38, y: 4.43, z: 0}
+  m_LocalPosition: {x: -14.01, y: 4.24, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5756535, z: 0.4}
-  m_Children: []
+  m_Children:
+  - {fileID: 1881745194}
   m_Father: {fileID: 1046833165}
   m_RootOrder: 0
+--- !u!114 &1693891066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693891059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ac71d2023745ec9d95ec7fc792a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695235998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7789,7 +7814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1872722663
 Transform:
   m_ObjectHideFlags: 0
@@ -7832,6 +7857,81 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1881745193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1881745194}
+  - 96: {fileID: 1881745195}
+  m_Layer: 0
+  m_Name: CloudTrail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881745194
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881745193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1693891065}
+  m_RootOrder: 0
+--- !u!96 &1881745195
+TrailRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881745193}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 0.25
+  m_StartWidth: 1
+  m_EndWidth: 0.5
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 3791650815
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 3372220415
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 1744830463
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!1 &1885071329
 GameObject:
   m_ObjectHideFlags: 0
