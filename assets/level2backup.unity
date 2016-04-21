@@ -46079,7 +46079,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e531708f6d8b5b4c980a3f674b720ea, type: 2}
+  - {fileID: 2100000, guid: ab26745376baff04a993d490c9843435, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -51477,7 +51477,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e531708f6d8b5b4c980a3f674b720ea, type: 2}
+  - {fileID: 2100000, guid: ab26745376baff04a993d490c9843435, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -63509,7 +63509,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e531708f6d8b5b4c980a3f674b720ea, type: 2}
+  - {fileID: 2100000, guid: ab26745376baff04a993d490c9843435, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
