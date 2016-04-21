@@ -50,6 +50,32 @@ public class GameManager : Singleton<GameManager> {
 		set{ _status = value; }
 	}
 
+	private bool _invincible = false;
+
+	public bool Invincible
+	{
+		get{
+			return _invincible;
+		}
+
+		set{
+			_invincible = value;
+		}
+	}
+
+	private float _invincibleTime = 0f;
+
+	public float InvincibleTime{
+		get{
+			return _invincibleTime;
+		}
+
+		set{
+			_invincibleTime = value;
+		}
+
+	}
+
 	private float maxTime = 180; // In seconds.
 
 	private float maxHealth = 100; // The max health of the hero
@@ -68,16 +94,32 @@ public class GameManager : Singleton<GameManager> {
 		if (TimeRemaining <= 0) {
 			RestartGame ();
 		}
+
+		if (InvincibleTime > 0 && Invincible == true) {
+			InvincibleTime -= Time.deltaTime;
+			/*
+			Debug.LogError (Invincible);
+			Debug.LogError (InvincibleTime);
+			*/
+			if (InvincibleTime <= 0) {
+				InvincibleTime = 0;
+				Invincible = false;
+
+				//Debug.LogError (Invincible);
+				//Debug.LogError (InvincibleTime);
+			}
+		}
 	}
 
 	void FixedUpdate(){
 
-		if (Status == "PlayerCloud") 
+		if (Status == "PlayerCloud" && Invincible == false) 
 		{
 			Debug.LogError("PlayerCloud Heath:" + Health);
 			//Health -= CloudStateHeathMinusValue;
 			Health -= 0.01f;
 		}
+
 	}
 
 
