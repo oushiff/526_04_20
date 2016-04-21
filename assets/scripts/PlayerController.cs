@@ -77,13 +77,11 @@ public class PlayerController : MonoBehaviour {
 				Debug.Log ("Snow Disappear!!!!");
 				//cloudObject.SetActive (false);
 				//Destroy(cloudObject);
-				GameManager.Instance.Status = "PlayerCloud";
 				transform.position = outOfScreen;
 			} else {
 				Debug.Log ("Snow re-appear!!!!");
 				//GameObject cloudObject = GameObject.Find ("CloudBall");
 				//cloudObject.SetActive (true);
-				GameManager.Instance.Status = "PlayerSnow";
 				transform.position = cloudController.lastPosition;
 				//GameObject.Instantiate(cloudObject,transform.position/* new Vector3(5.6f,12.5f,0f)*/,Quaternion.identity);
 			}
@@ -111,6 +109,10 @@ public class PlayerController : MonoBehaviour {
 
 		movement.y = 0;//joystick.Vertical();
 		//Debug.Log (" spped " + movement.y);
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            tryJump();
 
 
 		bool isJumpClick = heroJump.isClickBool;
