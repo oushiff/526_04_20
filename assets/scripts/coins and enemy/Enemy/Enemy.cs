@@ -55,15 +55,20 @@ public class Enemy : Character {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "PlayerSnow" || other.tag == "PlayerCloud") {
+			
 			if(GameManager.Instance.Bleeding == false){
+
 				GameManager.Instance.EnableBleeding ();
+
 				Debug.Log ("Player's health is deducted");
 				GameManager.Instance.Health -= 50;
 				Debug.Log ("Current Health:" + GameManager.Instance.Health);
+
 				if (GameManager.Instance.Health <= 0) {
 					GameManager.Instance.RestartGame ();
 				}
 			}
+
 		}
 
 		else currentState.OnTriggerEnter(other);
@@ -73,7 +78,7 @@ public class Enemy : Character {
 	private GameObject enemySelf;
 
 	void OnTriggerExit2D(Collider2D other){
-		if (other.tag == "Player") {
+		if (other.tag == "PlayerSnow" || other.tag == "PlayerCloud") {
 			Debug.Log ("Enemy died");
 			Destroy (enemySelf); // the health is deducted, and enemy died
 		}
