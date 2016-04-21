@@ -76,6 +76,39 @@ public class GameManager : Singleton<GameManager> {
 
 	}
 
+	private bool _bleeding  = false;
+
+	public bool Bleeding{
+		get{
+			return _bleeding;
+		}
+
+		set{
+			_invincible = value;
+		}
+	}
+
+
+	private float _bleedingTime = 0f;
+
+	public float BleedingTime{
+		get{
+			return _bleedingTime;
+		}
+
+		set{
+			_bleedingTime = value;
+		}
+	}
+
+	[SerializeField]
+	private float bleedingTimeMax = 2.0f;
+
+	public void EnableBleeding(){
+		Bleeding = true;
+		BleedingTime = bleedingTimeMax;
+	}
+
 	private float maxTime = 180; // In seconds.
 
 	private float maxHealth = 100; // The max health of the hero
@@ -102,11 +135,20 @@ public class GameManager : Singleton<GameManager> {
 			Debug.LogError (InvincibleTime);
 			*/
 			if (InvincibleTime <= 0) {
-				InvincibleTime = 0;
+				InvincibleTime = 0f;
 				Invincible = false;
 
 				//Debug.LogError (Invincible);
 				//Debug.LogError (InvincibleTime);
+			}
+		}
+
+		if (BleedingTime > 0 && Bleeding == true) {
+			BleedingTime -= Time.deltaTime;
+
+			if (BleedingTime <= 0) {
+				BleedingTime = 0f;
+				Bleeding = false;
 			}
 		}
 	}

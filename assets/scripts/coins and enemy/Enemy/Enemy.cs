@@ -54,15 +54,18 @@ public class Enemy : Character {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player") {
-			Debug.Log ("Player's health is deducted");
-			GameManager.Instance.Health -= 50;
-			Debug.Log ("Current Health:" + GameManager.Instance.Health);
-			if (GameManager.Instance.Health <= 0) {
-				GameManager.Instance.RestartGame ();
+		if (other.tag == "PlayerSnow" || other.tag == "PlayerCloud") {
+			if(GameManager.Instance.Bleeding == false){
+				GameManager.Instance.EnableBleeding ();
+				Debug.Log ("Player's health is deducted");
+				GameManager.Instance.Health -= 50;
+				Debug.Log ("Current Health:" + GameManager.Instance.Health);
+				if (GameManager.Instance.Health <= 0) {
+					GameManager.Instance.RestartGame ();
+				}
 			}
 		}
-			
+
 		else currentState.OnTriggerEnter(other);
 	}
 
