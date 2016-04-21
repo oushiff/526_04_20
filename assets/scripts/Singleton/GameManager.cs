@@ -42,7 +42,15 @@ public class GameManager : Singleton<GameManager> {
 		set { _health = value; }
 	}
 
-	private float maxTime = 60; // In seconds.
+	private string _status = "PlayerSnow";
+
+	public string Status
+	{
+		get{ return _status; }
+		set{ _status = value; }
+	}
+
+	private float maxTime = 180; // In seconds.
 
 	private float maxHealth = 100; // The max health of the hero
 
@@ -51,7 +59,8 @@ public class GameManager : Singleton<GameManager> {
 		TimeRemaining = maxTime;
 		Health = maxHealth;
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
 		TimeRemaining -= Time.deltaTime;
@@ -61,16 +70,25 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 
+	void FixedUpdate(){
+
+		if (Status == "PlayerCloud") 
+		{
+			Debug.LogError("PlayerCloud Heath:" + Health);
+			//Health -= CloudStateHeathMinusValue;
+			Health -= 0.01f;
+		}
+	}
+
 
 	public void RestartGame(){
-		//Debug.LogError ("Reset");
-
-
 		Application.LoadLevel (Application.loadedLevel);
+		ResetPlayerProperty ();
+	}
+	public void ResetPlayerProperty(){
 		TimeRemaining = maxTime;
 		NumCoins = 0;
-		//Reset the health of the hero
 		Health = maxHealth;
-
+		Status = "PlayerSnow";
 	}
 }

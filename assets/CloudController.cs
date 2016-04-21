@@ -22,7 +22,7 @@ public class CloudController : MonoBehaviour {
 	public PlayerController playerController;
 	public Vector3 lastPosition;
 
-    
+
 	void Awake(){
 		rb2d = GetComponent<Rigidbody2D> ();
 		isCloud = false;
@@ -56,11 +56,13 @@ public class CloudController : MonoBehaviour {
 				Debug.Log ("Cloud Disappear!!!!");
 				//cloudObject.SetActive (false);
 				//Destroy(cloudObject);
-                transform.position = outOfScreen;
+				GameManager.Instance.Status = "PlayerSnow";
+				transform.position = outOfScreen;
 			} else {
 				Debug.Log ("Cloud re-appear!!!!");
 				//GameObject cloudObject = GameObject.Find ("CloudBall");
 				//cloudObject.SetActive (true);
+				GameManager.Instance.Status = "PlayerCloud";
 				transform.position = playerController.lastPosition;
 				//GameObject.Instantiate(cloudObject,transform.position/* new Vector3(5.6f,12.5f,0f)*/,Quaternion.identity);
 			}
@@ -94,15 +96,5 @@ public class CloudController : MonoBehaviour {
 
 
 	}
-
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "minusGravityTrigger")
-        {
-            Debug.Log("Cloud hit the minusGravityTrigger");
-            rb2d.gravityScale = -30;
-        }
-    }
 
 }
