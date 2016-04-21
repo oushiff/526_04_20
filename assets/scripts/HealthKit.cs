@@ -23,18 +23,19 @@ public class HealthKit : MonoBehaviour {
 		}
 	}
 
+
 	[SerializeField]
 	private float healthAddition = 20;
 
 	private void GetHealth()
 	{
 		GameManager.Instance.Health += healthAddition;
-
 		if (GameManager.Instance.Health > 100) {
-			GameManager.Instance.Health -= 100;
+			GameManager.Instance.Health = 100;
 		}
 
 		Destroy (gameObject);
+
 	}
 
 	// Use this for initialization
