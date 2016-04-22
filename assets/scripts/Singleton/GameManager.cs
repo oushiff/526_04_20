@@ -52,6 +52,7 @@ public class GameManager : Singleton<GameManager> {
 		set{ _status = value; }
 	}
 
+	[SerializeField]
 	private bool _invincible = false;
 
 	public bool Invincible
@@ -65,6 +66,7 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 
+	[SerializeField]
 	private float _invincibleTime = 0f;
 
 	public float InvincibleTime{
@@ -78,8 +80,10 @@ public class GameManager : Singleton<GameManager> {
 
 	}
 
+	[SerializeField]
 	private bool _bleeding  = false;
 
+	[SerializeField]
 	public bool Bleeding{
 		get{
 			return _bleeding;
@@ -90,7 +94,7 @@ public class GameManager : Singleton<GameManager> {
 		}
 	}
 
-
+	[SerializeField]
 	private float _bleedingTime = 0f;
 
 	public float BleedingTime{
@@ -106,9 +110,12 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField]
 	private float bleedingTimeMax = 2.0f;
 
-	public void EnableBleeding(){
-		Bleeding = true;
-		BleedingTime = bleedingTimeMax;
+	private void EnableBleeding(){
+		_bleeding = true;
+		_bleedingTime = bleedingTimeMax;
+
+		Debug.LogError ("Bleeding: " + Bleeding);
+		Debug.LogError (BleedingTime);
 	}
 
 	private float maxTime = 180; // In seconds.
@@ -122,16 +129,19 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	public void DecreaseHealth(float DecreaseValue){
+		EnableBleeding ();
 		Health -= DecreaseValue;
 	}
 
-
-	// Update is called once per frame
-	void Update () {
-		//Modify later to unify the place of restart
+	private void HealthCheck(){
 		if (Health <= 0) {
 			transform.parent.gameObject.AddComponent<GameOver>();
 		}
+	}
+
+	// Update is called once per frame
+	void Update () {
+		HealthCheck ();
 
 		TimeRemaining -= Time.deltaTime;
 
@@ -142,25 +152,25 @@ public class GameManager : Singleton<GameManager> {
 
 		if (InvincibleTime > 0 && Invincible == true) {
 			InvincibleTime -= Time.deltaTime;
-			/*
+
 			Debug.LogError (Invincible);
 			Debug.LogError (InvincibleTime);
-			*/
+
 			if (InvincibleTime <= 0) {
 				InvincibleTime = 0f;
 				Invincible = false;
 
-				//Debug.LogError (Invincible);
-				//Debug.LogError (InvincibleTime);
+				Debug.LogError (Invincible);
+				Debug.LogError (InvincibleTime);
 			}
 		}
 
-		if (BleedingTime > 0 && Bleeding == true) {
-			BleedingTime -= Time.deltaTime;
+		if (_bleedingTime > 0 && _bleeding == true) {
+			_bleedingTime -= Time.deltaTime;
 
-			if (BleedingTime <= 0) {
-				BleedingTime = 0f;
-				Bleeding = false;
+			if (_bleedingTime <= 0) {
+				_bleedingTime = 0f;
+				_bleeding = false;
 			}
 		}
 	}
@@ -169,10 +179,12 @@ public class GameManager : Singleton<GameManager> {
 
 		if (Status == "PlayerCloud" && Invincible == false) 
 		{
-			Debug.LogError("PlayerCloud Heath:" + Health);
+			Debug.Log("PlayerCloud Heath:" + Health);
 			//Health -= CloudStateHeathMinusValue;
-			Health -= 0.01f;
+			Health -= 0.05f;
 		}
+
+		HealthCheck ();
 
 	}
 

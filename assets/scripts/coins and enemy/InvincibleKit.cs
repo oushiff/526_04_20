@@ -43,9 +43,9 @@ public class InvincibleKit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		startingY = transform.position.y;
-		transform.Rotate (transform.up, Random.Range (0f, 360f));
+		//transform.Rotate (transform.up, Random.Range (0f, 360f));
 
-		StartCoroutine (Spin ());
+		//StartCoroutine (Spin ());
 		StartCoroutine (Float ());
 	}
 
