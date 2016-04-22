@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
@@ -120,9 +121,20 @@ public class GameManager : Singleton<GameManager> {
 		Health = maxHealth;
 	}
 
+	public void DecreaseHealth(float DecreaseValue){
+		Health -= DecreaseValue;
+	}
+
 
 	// Update is called once per frame
 	void Update () {
+		//Modify later to unify the place of restart
+		if (Health <= 0) {
+
+
+
+		}
+
 		TimeRemaining -= Time.deltaTime;
 
 		if (TimeRemaining <= 0) {
@@ -167,9 +179,10 @@ public class GameManager : Singleton<GameManager> {
 
 
 	public void RestartGame(){
-		Application.LoadLevel (Application.loadedLevel);
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		ResetPlayerProperty ();
 	}
+
 	public void ResetPlayerProperty(){
 		TimeRemaining = maxTime;
 		NumCoins = 0;
