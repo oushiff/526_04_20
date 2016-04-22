@@ -5,6 +5,9 @@ public class NonFloatCoin : MonoBehaviour {
 	[SerializeField]
 	private float rotateSpeed = 1.0f;
 
+	private float startingY;
+
+	/*
 	[SerializeField]
 	private float floatSpeed = 0.5f; // In cycles (up and down) per second
 
@@ -12,12 +15,13 @@ public class NonFloatCoin : MonoBehaviour {
 	private float movementDistance = 0.5f; // The maximum distance the coin can move up and down.
 
 
-	private float startingY;
+	
 	private bool isMovingUp = true;
 
+	*/
 	void OnTriggerEnter2D(Collider2D collider2d)
 	{
-		if (collider2d.gameObject.tag == "Player")
+		if (collider2d.gameObject.tag == "PlayerSnow" || collider2d.gameObject.tag == "PlayerCloud")
 		{
 			Pickup();
 		}
@@ -33,7 +37,6 @@ public class NonFloatCoin : MonoBehaviour {
 	void Start () {
 		startingY = transform.position.y;
 		transform.Rotate (transform.up, Random.Range (0f, 360f));
-
 		StartCoroutine (Spin ());
 	}
 
