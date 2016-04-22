@@ -138,7 +138,8 @@ public class GameManager : Singleton<GameManager> {
 		TimeRemaining -= Time.deltaTime;
 
 		if (TimeRemaining <= 0) {
-			RestartGame ();
+			//RestartGame ();
+			transform.parent.gameObject.AddComponent<GameOver>();
 		}
 
 		if (InvincibleTime > 0 && Invincible == true) {

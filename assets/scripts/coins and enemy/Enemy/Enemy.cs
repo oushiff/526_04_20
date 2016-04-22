@@ -65,7 +65,8 @@ public class Enemy : Character {
 				Debug.Log ("Current Health:" + GameManager.Instance.Health);
 
 				if (GameManager.Instance.Health <= 0) {
-					GameManager.Instance.RestartGame ();
+					//GameManager.Instance.RestartGame ();
+					transform.parent.gameObject.AddComponent<GameOver>();
 				}
 			}
 

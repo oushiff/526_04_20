@@ -15,7 +15,8 @@ public class circleWithGapController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player")
-			GameManager.Instance.RestartGame ();
+			transform.parent.gameObject.AddComponent<GameOver>();
+			//GameManager.Instance.RestartGame ();
 		//else currentState.OnTriggerEnter(other);
 	}
 }

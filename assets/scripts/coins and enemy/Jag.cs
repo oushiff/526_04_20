@@ -19,7 +19,8 @@ public class Jag : MonoBehaviour {
 	{
 		GameManager.Instance.Health += healthDecrease;
 		if (GameManager.Instance.Health <= 0) {
-			GameManager.Instance.RestartGame ();
+			//GameManager.Instance.RestartGame ();
+			transform.parent.gameObject.AddComponent<GameOver>();
 		}
 
 	}
