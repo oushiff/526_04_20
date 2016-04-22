@@ -49,6 +49,7 @@ public class DarkCloudMovement : MonoBehaviour {
 			Disappear(3.0f);
 			// wait 3 seconds
 			//reload
+			GameManager.Instance.DecreaseHealth(30f);
 
 		}
 		//GameManager.Instance.RestartGame ();
