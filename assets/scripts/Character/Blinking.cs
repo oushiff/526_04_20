@@ -3,14 +3,20 @@ using System.Collections;
 
 public class Blinking : MonoBehaviour {
 
+	public int maxTime = 10;
+	public int counting = 0;
+	public float blinkTime = 0.2f;
+
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(DoBlinks(3f, 0.2f));
+
+		counting = 0;
+		StartCoroutine(DoBlinks());
 	}
 
-	IEnumerator DoBlinks(float duration, float blinkTime) {
-		while (duration > 0f) {
-			duration -= Time.deltaTime;
+	IEnumerator DoBlinks() {
+		while (counting < maxTime) {
+			counting++;
 
 			//toggle renderer
 			GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
