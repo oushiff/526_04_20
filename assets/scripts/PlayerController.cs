@@ -89,12 +89,14 @@ public class PlayerController : MonoBehaviour {
 				Debug.Log ("Snow Disappear!!!!");
 				//cloudObject.SetActive (false);
 				//Destroy(cloudObject);
+				GameManager.Instance.Status = "PlayerCloud";
 				transform.position = outOfScreen;
 			} else {
 				Debug.Log ("Snow re-appear!!!!");
 				//GameObject cloudObject = GameObject.Find ("CloudBall");
 				//cloudObject.SetActive (true);
 				transform.position = cloudController.lastPosition;
+				GameManager.Instance.Status = "PlayerSnow";
 				//GameObject.Instantiate(cloudObject,transform.position/* new Vector3(5.6f,12.5f,0f)*/,Quaternion.identity);
 			}
 		}
