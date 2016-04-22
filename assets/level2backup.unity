@@ -33500,6 +33500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d1023e55a504abdafcb35317125751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 100
+  bleedingTimeMax: 2
 --- !u!4 &1029719980
 Transform:
   m_ObjectHideFlags: 0
@@ -63552,7 +63554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef2e78529ffa45fe88eb846cd2b0042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroTransform: {fileID: 0}
+  heroTransform: {fileID: 1890232325}
 --- !u!1 &1980826219
 GameObject:
   m_ObjectHideFlags: 0
@@ -65394,6 +65396,7 @@ MonoBehaviour:
   i: 0
   cloudController: {fileID: 1189055647}
   lastPosition: {x: 0, y: 0, z: 0}
+  ballRadius: 0
 --- !u!50 &2063387603
 Rigidbody2D:
   serializedVersion: 2

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 //using CnControls;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour {
 	public CloudController cloudController;
 	public Vector3 lastPosition;
 
+	public float ballRadius;
+
 	//
 	//	//For Crawler
 	//	public float moveSpeed = .2f;
@@ -43,6 +46,15 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Scene scene = SceneManager.GetActiveScene(); 
+
+		if (scene.name == "Level3") {
+			ballRadius = 0.25f;
+		}
+		else {
+			ballRadius = 1f;
+		}
 
 		//rb2d.drag = 0.5f;
 		m_Grounded=false;
@@ -129,7 +141,7 @@ public class PlayerController : MonoBehaviour {
 		rb2d.velocity = new Vector2 (movement.x , rb2d.velocity.y);
 
 		//jump
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(rb2d.position, 0.25f);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(rb2d.position, 1f);
 		//Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
 
 		//		for (int i = 0; i < colliders.Length; i++)
