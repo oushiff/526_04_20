@@ -48,6 +48,7 @@
      <Compile Include="assets\2dterraineditor\example\Scripts\Terrain2DGenerator.cs" />
      <Compile Include="assets\2dterraineditor\example\Scripts\Terrain2DRealtimeDeformer.cs" />
      <Compile Include="assets\2dterraineditor\scripts\TerrainEditor2D.cs" />
+     <Compile Include="assets\AirEffect.cs" />
      <Compile Include="assets\CircleFireController.cs" />
      <Compile Include="assets\CircleIceController.cs" />
      <Compile Include="assets\CircleStoneController.cs" />
@@ -105,6 +106,8 @@
      <None Include="assets\abstract platformer (370 assets)\License.txt" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_enemies.xml" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_other.xml" />
+     <None Include="assets\Shaders\Standard.shader" />
+     <None Include="assets\Shaders\Sprites-Diffuse.shader" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_tiles.xml" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_players.xml" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_complete.xml" />

@@ -50,6 +50,8 @@
      <None Include="assets\abstract platformer (370 assets)\License.txt" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_enemies.xml" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_other.xml" />
+     <None Include="assets\Shaders\Standard.shader" />
+     <None Include="assets\Shaders\Sprites-Diffuse.shader" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_tiles.xml" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_players.xml" />
      <None Include="assets\abstract platformer (370 assets)\Spritesheet\spritesheet_complete.xml" />
