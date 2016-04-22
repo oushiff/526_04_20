@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SizeTransform : MonoBehaviour {
 
+	private Vector3 originalScale = new Vector3 (1, 1, 1); 
 	// Use this for initialization
 	void Start () {
 	
@@ -14,8 +15,9 @@ public class SizeTransform : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (GameManager.Instance.Bleeding == true) {
-			gameObject.transform.localScale /= 1.1f;
-		}
+		float multiplier = GameManager.Instance.Health / 100f;
+		Debug.LogError (multiplier);
+		if(multiplier > 0.2)	gameObject.transform.localScale = originalScale * multiplier;
+		
 	}
 }

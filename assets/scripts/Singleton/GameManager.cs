@@ -34,7 +34,8 @@ public class GameManager : Singleton<GameManager> {
         set { _coinsGot = value; }
     }
 
-	private float _health;
+	[SerializeField]
+	private float _health = 100f;
 
 	public float Health
 	{
