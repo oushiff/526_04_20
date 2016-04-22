@@ -130,9 +130,7 @@ public class GameManager : Singleton<GameManager> {
 	void Update () {
 		//Modify later to unify the place of restart
 		if (Health <= 0) {
-
-
-
+			transform.parent.gameObject.AddComponent<GameOver>();
 		}
 
 		TimeRemaining -= Time.deltaTime;
