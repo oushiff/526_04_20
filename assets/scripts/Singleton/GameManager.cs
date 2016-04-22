@@ -114,8 +114,8 @@ public class GameManager : Singleton<GameManager> {
 		_bleeding = true;
 		_bleedingTime = bleedingTimeMax;
 
-		Debug.LogError ("Bleeding: " + Bleeding);
-		Debug.LogError (BleedingTime);
+		Debug.Log ("Bleeding: " + Bleeding);
+		Debug.Log (BleedingTime);
 	}
 
 	private float maxTime = 180; // In seconds.
@@ -153,15 +153,15 @@ public class GameManager : Singleton<GameManager> {
 		if (InvincibleTime > 0 && Invincible == true) {
 			InvincibleTime -= Time.deltaTime;
 
-			Debug.LogError (Invincible);
-			Debug.LogError (InvincibleTime);
+			Debug.Log (Invincible);
+			Debug.Log (InvincibleTime);
 
 			if (InvincibleTime <= 0) {
 				InvincibleTime = 0f;
 				Invincible = false;
 
-				Debug.LogError (Invincible);
-				Debug.LogError (InvincibleTime);
+				Debug.Log (Invincible);
+				Debug.Log (InvincibleTime);
 			}
 		}
 
